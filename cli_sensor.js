@@ -6,10 +6,6 @@ smartliving.DeviceId = ("YOUR_DEVICEID");
 smartliving.ClientId = ("YOUR_CLIENTID");
 smartliving.ClientKey = ("YOUR_CLIENTKEY");
 
-smartliving.DeviceId = ("jEoUeDLroHqB1RYUfpZqcv9");
-smartliving.ClientId = ("snillocmot");
-smartliving.ClientKey = ("wrmfnrokve4");
-
 smartliving.addAsset("1", "Command-line input sensor", "A simple node.js 'cli sensor' for you to test your connection with SmartLiving, regardless of OS", false, "string", function(){console.log("uber duber sensor enrolled")});
 
 smartliving.subscribe(smartliving.baseMQTTUrl, 1883);
