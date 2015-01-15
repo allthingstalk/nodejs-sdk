@@ -1,13 +1,14 @@
 {
-  "name": "SmartLiving Node.js client library",
+  "name": "SmartLivingNodeclientlibrary",
   "description": "",
-  "version": "0.0.1"
+  "version": "0.0.1",
   "engines": {
     "node": ">=0.10.0"
   },
   "dependencies": {
     "mqtt": "^0.3.13",
     "request": "^2.48.0",
-    "smc":"*"
+    "smc":"*",
+    "prompt":"*"
   }
 }

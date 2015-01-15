@@ -8,9 +8,9 @@ d8.dir(mraa.DIR_OUT); //set the gpio direction to output
 var ledState = false; //Boolean to hold the state of Led
 
 
-smartliving.DeviceId = ("nvQBq6xq2z2n7eAAwpxjAx4");
-smartliving.ClientId = ("snillocmot");
-smartliving.ClientKey = ("wrmfnrokve4");
+smartliving.DeviceId = ("YOUR_DEVICEID");
+smartliving.ClientId = ("YOUR_CLIENTID");
+smartliving.ClientKey = ("YOUR_CLIENTKEY");
 
 smartliving.addAsset("2", "Missle launcher", "Fires 10xD missles at incoming spacecraft, and also a neat LED for some visual feedback...", true, "bool", function(){console.log("Missle LED enrolled")});
 
