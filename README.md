@@ -1,4 +1,4 @@
-# Node.js SmartLiving/AllThingsTalk library
+# Node.js SmartLiving/AllThingsTalk/Internet of Things Client library
 
 Use this to connect your apps, services, controllers... cat, dog, grandmother to the SmartLiving IoT Cloud Platform.
 
