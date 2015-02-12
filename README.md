@@ -8,3 +8,5 @@ Use this to connect your apps, services, controllers... cat, dog, grandmother to
 	4. node cli_sensor.js
 
 Donezo.
+
+All credit to @MichielDeMey for kickstarting this!
