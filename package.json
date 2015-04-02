@@ -1,6 +1,6 @@
 {
-  "name": "SmartLivingNodeclientlibrary",
-  "description": "",
+  "name": "smartliving",
+  "description": "A shabby node.js library to connect stuff to the SmartLiving IoT Cloud, soon to be refactored with love and attention...",
   "version": "0.0.1",
   "engines": {
     "node": ">=0.10.0"
@@ -9,6 +9,7 @@
     "mqtt": "^0.3.13",
     "request": "^2.48.0",
     "smc":"*",
-    "prompt":"*"
+    "prompt":"*",
+    "player":"*"
   }
 }
