@@ -1,6 +1,10 @@
 {
   "name": "smartliving",
   "description": "A shabby node.js library to connect stuff to the SmartLiving IoT Cloud, soon to be refactored with love and attention...",
+  "repository" : {
+   "type" : "git"
+  , "url" : "https://github.com/allthingstalk/nodejs-client.git"
+  },
   "version": "0.0.1",
   "engines": {
     "node": ">=0.10.0"
@@ -10,6 +14,7 @@
     "request": "^2.48.0",
     "smc":"*",
     "prompt":"*",
-    "player":"*"
+    "player":"*",
+    "say":"*"
   }
 }

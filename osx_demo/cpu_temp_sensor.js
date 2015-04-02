@@ -1,10 +1,9 @@
-var vars = require('./variables'); //Contains unique vars for your project
-var smartliving = require('./lib/standard');
+var smartliving = require('smartliving');
 var smc = require('smc');
 
-smartliving.DeviceId = vars.deviceId;
-smartliving.ClientId = vars.clientId;
-smartliving.ClientKey = vars.clientKey;
+smartliving.credentials = require('./variables');
+
+console.log(smartliving.credentials)
 
 smartliving.addAsset("1", "Mac CPU Temp", "Monitors the temperature of the top secret nuclear reactor controller... AKA my Mac ", false, "int", function(){console.log("Mac CPU temperature sensor enrolled")});
 
