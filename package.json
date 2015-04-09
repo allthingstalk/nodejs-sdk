@@ -5,16 +5,9 @@
    "type" : "git"
   , "url" : "https://github.com/allthingstalk/nodejs-client.git"
   },
-  "version": "0.0.1",
-  "engines": {
-    "node": ">=0.10.0"
-  },
+  "version": "0.0.2",
   "dependencies": {
     "mqtt": "^0.3.13",
-    "request": "^2.48.0",
-    "smc":"*",
-    "prompt":"*",
-    "player":"*",
-    "say":"*"
+    "request": "^2.48.0"
   }
 }
