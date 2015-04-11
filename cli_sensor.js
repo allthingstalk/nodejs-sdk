@@ -1,6 +1,6 @@
-var smartliving = require('./lib/smartliving');
+var smartliving = require('smartliving');
 
-smartliving.credentials = require('./credentials'); // Find your credentials at beta.smartliving.io... Format like so {"deviceId":"",clientId:"",clientKey:""}
+smartliving.credentials = require('credentials.json');
 
 var cli = smartliving.addAsset(
   "101",
