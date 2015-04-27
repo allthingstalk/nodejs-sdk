@@ -5,7 +5,7 @@
     "type": "git",
     "url": "https://github.com/allthingstalk/nodejs-client.git"
   },
-  "version": "0.0.21",
+  "version": "0.0.24",
   "dependencies": {
     "mqtt": "^0.3.13",
     "request": "^2.48.0"

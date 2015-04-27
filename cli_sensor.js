@@ -1,6 +1,6 @@
 var smartliving = require('smartliving');
 
-smartliving.credentials = require('credentials.json');
+smartliving.credentials = require('./credentials');
 
 var cli = smartliving.addAsset(
   "101",
@@ -8,7 +8,7 @@ var cli = smartliving.addAsset(
   "A simple node.js 'cli sensor' for you to test your connection with SmartLiving, regardless of OS",
   "string",
   function(){
-    console.log("Command-line input sensor enrolled\n");
+    console.log("cli sensor enrolled\n");
     console.log("Enter your sensor data:");
 });
 
@@ -20,15 +20,11 @@ console.log("\nCheck out this widget to view your data in a web app: \n\nhttp://
   
   process.stdin.on('data', function (result) {  
     if (result === 'quit\n') {
-      done();
+      console.log('Bye bye.');
+      process.exit();
     }
 
     console.log("\n");
     smartliving.send(result, "101");
-    console.log("Enter your sensor data:");
+    console.log("Enter your sensor payload data:");
   });
-
-  function done() {
-    console.log('Bye bye.');
-    process.exit();
-  }
