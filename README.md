@@ -2,7 +2,7 @@
 
 Use it to connect your sensors, actuators, apps, services, controllers... Cat, dog, grandmother to the SmartLiving IoT Cloud platform, and interact with any other hardware or front-end you connect using REST, MQTT, STOMP, or AMQP.
 
-For more info' on what you can connect checkout [www.smartliving.io](http://www.smartliving.io)
+For more info' on what you can connect checkout [docs.smartliving.io](http://docs.smartliving.io)
 
 ## Quick start example
 Get started with the command line sensor app
@@ -32,7 +32,7 @@ Get started with the command line sensor app
 ## Playing with the examples
 There are many examples included that will run on Intel Galileo and Edison, as web services, and other desktop demos. 
 
-For more info' checkout [Node.js client library at Github](https://github.com/allthingstalk/nodejs-client) and the [SmartLiving Doc's](http://docs.smartliving.io).
+For more info' checkout [Node.js client examples library at Github](https://github.com/allthingstalk/nodejs-client-examples) and the [SmartLiving Doc's](http://docs.smartliving.io).
 
 Here's a list of the examples:
 
