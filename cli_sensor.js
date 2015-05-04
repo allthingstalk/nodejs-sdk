@@ -1,4 +1,4 @@
-var smartliving = require('smartliving');
+var smartliving = require('./lib/smartliving');
 
 smartliving.credentials = require('./credentials');
 
@@ -25,6 +25,6 @@ console.log("\nCheck out this widget to view your data in a web app: \n\nhttp://
     }
 
     console.log("\n");
-    smartliving.send(result, "101");
+    smartliving.send(result, cli.localId);
     console.log("Enter your sensor payload data:");
   });
