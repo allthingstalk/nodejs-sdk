@@ -1,6 +1,6 @@
-# SmartLiving Internet of Things Node.js library, for Raspberry Pi, Intel Edison/Galileo, Web services
+# AllThingsTalk Internet of Things Node.js library, for Raspberry Pi, Intel Edison/Galileo, Web services
 
-Use it to connect your sensors, actuators, apps, services, controllers... Cat, dog, grandmother to the SmartLiving IoT Cloud platform, and interact with any other hardware or front-end you connect using REST, MQTT, STOMP, or AMQP.
+Use it to connect your sensors, actuators, apps, services, controllers... Cat, dog, grandmother to the AllThingsTalk IoT Cloud platform, and interact with any other hardware or front-end you connect using REST, MQTT, STOMP, or AMQP.
 
 For more info' on what you can connect checkout [docs.smartliving.io](http://docs.smartliving.io)
 
