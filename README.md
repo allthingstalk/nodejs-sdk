@@ -51,5 +51,3 @@ Here's a list of the examples:
 
 ## Todo list
 - Update the Raspberry Pi pi-gpio examples 
-- Provide better integration of AllThingsTalk widgets that can be loaded via the Intel XDK
-- Check if the credentials.json exists, if not walk the user through how to get these details eb-styley through the API

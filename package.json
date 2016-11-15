@@ -5,7 +5,8 @@
     "type": "git",
     "url": "https://github.com/allthingstalk/nodejs-client.git"
   },
-  "version": "0.0.30",
+  "author": "Jan Bogaerts <jb@allthingstalk.com> (http://allthingstalk.com)",
+  "version": "1.2.0",
   "dependencies": {
     "mqtt": "^0.3.13",
     "request": "^2.48.0"
