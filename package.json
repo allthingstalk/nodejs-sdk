@@ -1,11 +1,11 @@
 {
-  "name": "smartliving",
-  "description": "A node.js library to connect stuff to the SmartLiving Intnet of Things (IoT) Cloud, soon to be refactored with love and attention...",
+  "name": "allthingstalk",
+  "description": "A node.js library to connect stuff to the AllThingsTalk Intnet of Things (IoT) Cloud, soon to be refactored with love and attention...",
   "repository": {
     "type": "git",
     "url": "https://github.com/allthingstalk/nodejs-client.git"
   },
-  "version": "0.0.29",
+  "version": "0.0.30",
   "dependencies": {
     "mqtt": "^0.3.13",
     "request": "^2.48.0"
