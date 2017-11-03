@@ -1,12 +1,15 @@
 {
   "name": "allthingstalk",
-  "description": "A node.js library to connect stuff to the AllThingsTalk Intnet of Things (IoT) Cloud, soon to be refactored with love and attention...",
+  "description": "A node.js library for AllThingsTalk Cloud",
   "repository": {
     "type": "git",
     "url": "https://github.com/allthingstalk/nodejs-client.git"
   },
-  "author": "Jan Bogaerts <jb@allthingstalk.com> (http://allthingstalk.com)",
-  "version": "1.2.0",
+  "contributors": [
+    "Branko Pajic <bp@allthingstalk.com> (http://allthingstalk.com)",
+    "Jan Bogaerts"
+  ],
+  "version": "2.0.0",
   "dependencies": {
     "mqtt": "^0.3.13",
     "request": "^2.48.0"
