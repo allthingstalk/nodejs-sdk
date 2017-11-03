@@ -19,7 +19,7 @@ allthingstalk.credentials = {
     "token": ""
 };
 
-allthingstalk.addAsset("cmd",	"commander", "This is an actuator test", "boolean", 
+allthingstalk.addAsset("cmd", "commander", "This is an actuator test", "boolean", 
 	function(){
   		console.log("Awaiting a command");
 	},

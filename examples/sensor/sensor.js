@@ -26,7 +26,7 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-allthingstalk.addAsset("msg",	"message", "This is a sensor test",	"string");
+allthingstalk.addAsset("msg", "message", "This is a sensor test", "string");
 
 allthingstalk.connect();
 
