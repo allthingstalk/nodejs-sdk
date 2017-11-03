@@ -1,0 +1,8 @@
+{
+  "name": "allthingstalk-actuator",
+  "description": "An example which enables you to receive commands from AllThingsTalk Maker in the terminal",
+  "version": "0.0.2",
+  "dependencies": {
+     "allthingstalk":"*"
+  }
+}

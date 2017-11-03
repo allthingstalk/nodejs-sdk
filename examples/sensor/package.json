@@ -1,0 +1,8 @@
+{
+  "name": "allthingstalk-sensor",
+  "description": "An example that enables you to send messages from the terminal and see them in AllThingsTalk Maker",
+  "version": "0.0.2",
+  "dependencies": {
+     "allthingstalk":"*"
+  }
+}

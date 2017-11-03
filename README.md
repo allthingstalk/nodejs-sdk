@@ -1,53 +1,79 @@
-# AllThingsTalk Internet of Things Node.js library, for Raspberry Pi, Intel Edison/Galileo, Web services
+# AllThingsTalk Node.js library
 
-Use it to connect your sensors, actuators, apps, services, controllers... Cat, dog, grandmother to the AllThingsTalk IoT Cloud platform, and interact with any other hardware or front-end you connect using REST, MQTT, STOMP, or AMQP.
+Use it to connect your sensors and actuators to the AllThingsTalk Maker, and interact with any other hardware or front-end you connect using REST, MQTT, STOMP, or AMQP.
 
-For more info' on what you can connect checkout [allthingstalk.com/docs](http://allthingstalk.com/docs)
+For more info on what you can connect checkout [docs.allthingstalk.com](http://docs.allthingstalk.com)
 
-## Quick start example
-Get started with the command line sensor app
+Download and install AllThingsTalk Node.js library: 
 
 	npm install allthingstalk
-	git clone http://github.com/allthingstalk/nodejs-client-examples
-	cd nodejs-client-examples/desktop_demo/cli_sensor
-	//Create and update your credentials.json file**
-	node cli_sensor
 
-**Before running the command line sensor you'll need to update a credentials.json file with your own auth tokens and deviceId. Here's how you should go about doing that*
+## Sensor example
+Get started with the sensor example - type in values in the terminal and see them update in real-time in AllThingsTalk Maker.
 
-- Create a file in the **cli_sensor** directory called **credentials.json**
-- Use the format like so:
-	
-		{
-   		 	"deviceId":"jM95n6L75aCt9H9w58sN9sz",
-   			"clientId":"MyPersonalClientId",
-   			"clientKey":"Cl13n7K3y"
-		}
+Create a device in Maker:
 
-- Create a **device** over at [maker.allthingstalk.com](http://maker.allthingstalk.com) and open the sidebar to find your unique deviceId, clientId and clientKey
-- Copy and paste your ID's to the correct fields in the credentials.json file you created
-- Save and run the app!
+- Go to [maker.allthingstalk.com](https://maker.allthingstalk.com)
+- Enter a ground
+- Connect a device
 
+To obtain the example you can either clone the repository, or copy the examples directly from GitHub.
 
-## Playing with the examples
-There are many examples included that will run on Intel Galileo and Edison, as web services, and other desktop demos. 
+Navigate to the example folder: 
 
-For more info' checkout [Node.js client examples library at Github](https://github.com/allthingstalk/nodejs-client-examples) and [AllThingsTalk Doc's](http://allthingstalk.com/docs).
+	cd nodejs-client/examples/sensor
 
-Here's a list of the examples:
+Enter the device credentials:
 
-- Intel Galileo & Edison
-	- Getting Started with AllThingsTalk & the Intel IoT XDK
-	- Smart doorbell
-	- Get warned when your Smartphone is unplugged
-	- Sense and interpret light values
-	- Smart shop window
-	- Motion detector to Android text-to-speech trigger
-- Desktop demos
-	- Command line sensor
-	- System beep warning actuator
-	- OSX Text-to-speech actuator 
-	- OSX CPU temperature and fan speed sensor
+- Open **sensor.js** file
+- Back in AllThingsTalk Maker, open device **Settings** and then **Authentication** section to see your **Device Id** and **Device Token**
+- Copy and paste **Device Id** and **Device Token** to **sensor.js** file
+- It should look like this:
 
-## Todo list
-- Update the Raspberry Pi pi-gpio examples 
+```
+	allthingstalk.credentials = {
+    	"deviceId": "71DTRZpn8SzXrfGMM7cGQ9Ui",
+    	"token": "maker:4UT0JCOR9JTfW1VeVsQ1aXliBU4MJtXcLcp9NB7"
+	};
+```
+
+- Save the changes
+
+Run sensor example:
+
+	node sensor
+
+Enter "hello" in the terminal and you should see **message** asset in AllThingsTalk Maker updated with "hello" state.
+
+## Actuator example
+Continue with the actuator example - send commands from AllThingsTalk Maker and receive them in the terminal.
+
+_We assume that you did the sensor examples above, so let's use the same device here_
+
+To obtain the example you can either clone the repository, or copy the examples directly from GitHub.
+
+Navigate to the example folder: 
+
+	cd nodejs-client/examples/actuator
+
+Enter the device credentials:
+
+- Open **actuator.js** file
+- Back in AllThingsTalk Maker, open device **Settings** and then **Authentication** section to see your **Device Id** and **Device Token**
+- Copy and paste **Device Id** and **Device Token** to **actuator.js** file
+- It should look like this:
+
+```
+	allthingstalk.credentials = {
+    	"deviceId": "71DTRZpn8SzXrfGMM7cGQ9Ui",
+    	"token": "maker:4UT0JCOR9JTfW1VeVsQ1aXliBU4MJtXcLcp9NB7"
+	};
+```
+
+- Save the changes
+
+Run actuator example:
+
+	node actuator
+
+In AllThingsTalk Maker, send a command from the `commander` asset; you should see that the command is received in the terminal. 
