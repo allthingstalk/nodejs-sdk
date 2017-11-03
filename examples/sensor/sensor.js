@@ -13,7 +13,7 @@
 */   
 
 
-const allthingstalk = require('../nodejs-client/lib/allthingstalk');
+const allthingstalk = require('../..');
 const readline = require('readline');
 
 allthingstalk.credentials = {
@@ -26,11 +26,11 @@ const rl = readline.createInterface({
   output: process.stdout
 });
 
-allthingstalk.addAsset("msg",	"message", "This is a sensor test",	"string")
+allthingstalk.addAsset("msg",	"message", "This is a sensor test",	"string");
 
 allthingstalk.connect();
 
 rl.question('Enter your message: ', function (message) {
-  allthingstalk.send(message, "msg") 
+  allthingstalk.send(message, "msg");
   rl.close();
 })

@@ -12,7 +12,7 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 */   
 
-const allthingstalk = require('../nodejs-client/lib/allthingstalk');
+const allthingstalk = require('../..');
 
 allthingstalk.credentials = {
     "deviceId": "",
