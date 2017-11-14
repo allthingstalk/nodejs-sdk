@@ -6,7 +6,7 @@ AllThingsTalk Node.js SDK enables easy access to [AllThingsTalk APIs](http://api
 
 After you download and install [Node.js](https://nodejs.org/en/download/), run the command in the terminal:
 
-```
+```bash
 npm install allthingstalk
 ```
 
@@ -20,7 +20,7 @@ Basic knowledge of JavaScript is expected in order to use the SDK.
 
 Create a .js file in `/node_modules/allthingstalk` folder and start by importing the library in your code:
 
-```
+```js
 const allthingstalk = require('./');
 ```
 
@@ -30,7 +30,7 @@ In order to connect your physical device, like a RPI or a web application implem
 
 Once you register at [maker.allthingstalk.com](#), and create a device, you'll find **Device Id** and **Device Token** under **Settings** > **Authentication**. Add it to your code:
 
-```
+```js
 allthingstalk.credentials = {
     "deviceId": "<yourDeviceId>",
     "token": "<yourDeviceToken>"
@@ -43,7 +43,7 @@ You'll need to add assets to your device, in order to map the data you're sendin
 
 In most cases you'll be *sending* data to the platform, e.g, your room temperature. Use a `sensor` asset for that.
 
-```
+```js
 allthingstalk.addAsset("counter", "Counter", "Count the number of user's visits", "integer")
 ```
 
@@ -51,7 +51,7 @@ This will create an asset with a unique asset name `counter`, human friendly tit
 
 If you want to know if the asset was added or not you can add a success callback argument to the function:
 
-```
+```js
 allthingstalk.addAsset("counter", "Counter", "Count the number of user's visits", "integer",
   function (status, statusMsg) {
   console.log(statusMsg)
@@ -64,19 +64,19 @@ This will add the asset and print out the message "Asset counter has been added"
 
 Establish a connection to the platform:
 
-```
+```js
 allthingstalk.connect();
 ```
 
 To send a sensor data to the platform do:
 
-```
+```js
 allthingstalk.send(<value>, "<assetName>");
 ```
 
 To simulate sending counter values to the `counter` asset add:
 
-```
+```js
 function sendCount(i) {
     setTimeout(function() {
         allthingstalk.send(i, "counter");
@@ -91,7 +91,7 @@ sendCount(0);
 
 If you wish to send a command from the platform to physical device and actuate it, you can use `actuator` assets. In order to create an `actuator` you'll pass actuation callback argument to `addAsset` function which defines what happens when a command from the platform arrives:
 
-```
+```js
 allthingstalk.addAsset("led", "Led", "Blue led lamp", "boolean", 
     function() {
           console.log ("Awaiting a command");
@@ -113,7 +113,7 @@ Sensor example simulates a device which asks for a message and sends it to the p
 
 Navigate to the example folder, and add your **Device Id** and **Device Token** to **sensor.js** file**,** e.g:
 
-```
+```js
 allthingstalk.credentials = {
     "deviceId": "71DTRZpn8SzXrfGMM7cGQ9Ui",
     "token": "afaketoken:4UT0JCOR9JTfW1VeVsQ1aXliBU4MJtXcLcp9NB7"
@@ -122,7 +122,7 @@ allthingstalk.credentials = {
 
 Save the changes and run the example:
 
-```
+```bash
 node sensor.js
 ```
 
@@ -134,7 +134,7 @@ Actuator example shows how to send commands from AllThingsTalk Maker and receive
 
 Navigate to the example folder, and add your **Device Id** and **Device Token** to **actuator.js,** e.g:
 
-```
+```js
 allthingstalk.credentials = {
     "deviceId": "71DTRZpn8SzXrfGMM7cGQ9Ui",
     "token": "maker:4UT0JCOR9JTfW1VeVsQ1aXliBU4MJtXcLcp9NB7"
@@ -143,7 +143,7 @@ allthingstalk.credentials = {
 
 Save the changes and run the example:
 
-```
+```bash
 node actuator.js
 ```
 
