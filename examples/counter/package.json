@@ -1,0 +1,8 @@
+{
+  "name": "allthingstalk-counter",
+  "description": "An example which simulates a counter and sends data to AllThingsTalk Maker",
+  "version": "0.0.2",
+  "dependencies": {
+     "allthingstalk":"*"
+  }
+}
