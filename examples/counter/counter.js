@@ -14,28 +14,24 @@
 
 
 const allthingstalk = require('../..');
-const readline = require('readline');
 
 allthingstalk.credentials = {
     "deviceId": "",
     "token": ""
 };
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-allthingstalk.addAsset("msg", "Message", "This is a sensor example", "string",
+allthingstalk.addAsset("counter", "Counter", "Counter example", "integer", 
   function (status, statusMsg) {
-  console.log(statusMsg)
+   console.log(statusMsg)
 });
 
 allthingstalk.connect();
 
-setTimeout(function() {
-  rl.question('Enter your message: ', function(message) {
-    allthingstalk.send(message, "msg");
-    rl.close();
-  });
-},  500);
+function sendCount(i) {
+    setTimeout(function() {
+        allthingstalk.send(i, "counter");
+        sendCount(++i);
+    }, 2000)
+};
+
+sendCount(0);

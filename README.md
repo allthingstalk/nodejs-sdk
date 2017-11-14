@@ -1,79 +1,151 @@
-# AllThingsTalk Node.js library
+# AllThingsTalk Node.js SDK
 
-Use it to connect your sensors and actuators to the AllThingsTalk Maker, and interact with any other hardware or front-end you connect using REST, MQTT, STOMP, or AMQP.
+AllThingsTalk Node.js SDK enables easy access to [AllThingsTalk APIs](http://api.allthingstalk.io/swagger/ui/index). Use it to write your IoT applications and send data to the [AllThingsTalk IoT platform](http://maker.allthingstalk.com).
 
-For more info on what you can connect checkout [docs.allthingstalk.com](http://docs.allthingstalk.com)
+# Installation
 
-Download and install AllThingsTalk Node.js library: 
+After you download and install [Node.js](https://nodejs.org/en/download/), run the command in the terminal:
 
-	npm install allthingstalk
+```
+npm install allthingstalk
+```
+
+*This will initialize a new project, and place all dependencies in it.*
+
+# Tutorial
+
+Basic knowledge of JavaScript is expected in order to use the SDK.
+
+## Importing the library
+
+Create a .js file in `/node_modules/allthingstalk` folder and start by importing the library in your code:
+
+```
+const allthingstalk = require('./');
+```
+
+## Identifying your device on AllThingsTalk Maker
+
+In order to connect your physical device, like a RPI or a web application implemented as a device to the platform, you'll need to map it to the device resource in the platform.
+
+Once you register at [maker.allthingstalk.com](#), and create a device, you'll find **Device Id** and **Device Token** under **Settings** > **Authentication**. Add it to your code:
+
+```
+allthingstalk.credentials = {
+    "deviceId": "<yourDeviceId>",
+    "token": "<yourDeviceToken>"
+};
+```
+
+## Adding assets
+
+You'll need to add assets to your device, in order to map the data you're sending to the platform. For more info on assets see [Assets article in our Docs](http://docs.allthingstalk.com/cloud/concepts/assets/).
+
+In most cases you'll be *sending* data to the platform, e.g, your room temperature. Use a `sensor` asset for that.
+
+```
+allthingstalk.addAsset("counter", "Counter", "Count the number of user's visits", "integer")
+```
+
+This will create an asset with a unique asset name `counter`, human friendly title, description of what it represents, and type of data that will be sent. Supported profile types are `number`, `integer`, `string`, `boolean` and `object`. For more info on profile types see [Profiles article in our Docs](http://docs.allthingstalk.com/cloud/concepts/assets/profiles/).
+
+If you want to know if the asset was added or not you can add a success callback argument to the function:
+
+```
+allthingstalk.addAsset("counter", "Counter", "Count the number of user's visits", "integer",
+  function (status, statusMsg) {
+  console.log(statusMsg)
+});
+```
+
+This will add the asset and print out the message "Asset counter has been added" in the terminal. Should you run the program again you’ll see a message "Asset counter already exists" because the asset resource has already been created during the first run of the program.
+
+## Sending data to the platform
+
+Establish a connection to the platform:
+
+```
+allthingstalk.connect();
+```
+
+To send a sensor data to the platform do:
+
+```
+allthingstalk.send(<value>, "<assetName>");
+```
+
+To simulate sending counter values to the `counter` asset add:
+
+```
+function sendCount(i) {
+    setTimeout(function() {
+        allthingstalk.send(i, "counter");
+        sendCount(++i);
+    }, 2000)
+};
+    
+sendCount(0);
+```
+
+## Receiving commands from the platform
+
+If you wish to send a command from the platform to physical device and actuate it, you can use `actuator` assets. In order to create an `actuator` you'll pass actuation callback argument to `addAsset` function which defines what happens when a command from the platform arrives:
+
+```
+allthingstalk.addAsset("led", "Led", "Blue led lamp", "boolean", 
+    function() {
+          console.log ("Awaiting a command");
+    },
+    function() {
+        myBoard.led(true); // example code that might actuate your device
+    });
+```
+
+Once the asset is created you'll see in the terminal that your device awaits a command. When that happens a function that turns the led on will run.
+
+# Examples
+
+To obtain the example you can either clone the repository, or copy the examples directly from [GitHub](https://github.com/allthingstalk/nodejs-client/tree/master/examples).
 
 ## Sensor example
-Get started with the sensor example - type in values in the terminal and see them update in real-time in AllThingsTalk Maker.
 
-Create a device in Maker:
+Sensor example simulates a device which asks for a message and sends it to the platform.
 
-- Go to [maker.allthingstalk.com](https://maker.allthingstalk.com)
-- Enter a ground
-- Connect a device
-
-To obtain the example you can either clone the repository, or copy the examples directly from GitHub.
-
-Navigate to the example folder: 
-
-	cd nodejs-client/examples/sensor
-
-Enter the device credentials:
-
-- Open **sensor.js** file
-- Back in AllThingsTalk Maker, open device **Settings** and then **Authentication** section to see your **Device Id** and **Device Token**
-- Copy and paste **Device Id** and **Device Token** to **sensor.js** file
-- It should look like this:
+Navigate to the example folder, and add your **Device Id** and **Device Token** to **sensor.js** file**,** e.g:
 
 ```
-	allthingstalk.credentials = {
-    	"deviceId": "71DTRZpn8SzXrfGMM7cGQ9Ui",
-    	"token": "maker:4UT0JCOR9JTfW1VeVsQ1aXliBU4MJtXcLcp9NB7"
-	};
+allthingstalk.credentials = {
+    "deviceId": "71DTRZpn8SzXrfGMM7cGQ9Ui",
+    "token": "afaketoken:4UT0JCOR9JTfW1VeVsQ1aXliBU4MJtXcLcp9NB7"
+};
 ```
 
-- Save the changes
+Save the changes and run the example:
 
-Run sensor example:
+```
+node sensor.js
+```
 
-	node sensor
-
-Enter "hello" in the terminal and you should see **message** asset in AllThingsTalk Maker updated with "hello" state.
+Enter “hello” in the terminal, and the **Message** asset will show your message.
 
 ## Actuator example
-Continue with the actuator example - send commands from AllThingsTalk Maker and receive them in the terminal.
 
-_We assume that you did the sensor examples above, so let's use the same device here_
+Actuator example shows how to send commands from AllThingsTalk Maker and receive them in the terminal.
 
-To obtain the example you can either clone the repository, or copy the examples directly from GitHub.
-
-Navigate to the example folder: 
-
-	cd nodejs-client/examples/actuator
-
-Enter the device credentials:
-
-- Open **actuator.js** file
-- Back in AllThingsTalk Maker, open device **Settings** and then **Authentication** section to see your **Device Id** and **Device Token**
-- Copy and paste **Device Id** and **Device Token** to **actuator.js** file
-- It should look like this:
+Navigate to the example folder, and add your **Device Id** and **Device Token** to **actuator.js,** e.g:
 
 ```
-	allthingstalk.credentials = {
-    	"deviceId": "71DTRZpn8SzXrfGMM7cGQ9Ui",
-    	"token": "maker:4UT0JCOR9JTfW1VeVsQ1aXliBU4MJtXcLcp9NB7"
-	};
+allthingstalk.credentials = {
+    "deviceId": "71DTRZpn8SzXrfGMM7cGQ9Ui",
+    "token": "maker:4UT0JCOR9JTfW1VeVsQ1aXliBU4MJtXcLcp9NB7"
+};
 ```
 
-- Save the changes
+Save the changes and run the example:
 
-Run actuator example:
+```
+node actuator.js
+```
 
-	node actuator
+In AllThingsTalk Maker, send a command from the **Commander** asset; you should see that the command is received in the terminal.
 
-In AllThingsTalk Maker, send a command from the `commander` asset; you should see that the command is received in the terminal. 

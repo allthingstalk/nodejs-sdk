@@ -9,7 +9,7 @@
     "Branko Pajic <bp@allthingstalk.com> (http://allthingstalk.com)",
     "Jan Bogaerts"
   ],
-  "version": "2.0.0",
+  "version": "2.0.1",
   "dependencies": {
     "mqtt": "^0.3.13",
     "request": "^2.48.0"

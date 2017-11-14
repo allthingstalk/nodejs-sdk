@@ -19,12 +19,12 @@ allthingstalk.credentials = {
     "token": ""
 };
 
-allthingstalk.addAsset("cmd", "commander", "This is an actuator test", "boolean", 
-	function(){
-  		console.log("Awaiting a command");
-	},
+allthingstalk.addAsset("cmd", "Commander", "This is an actuator test", "boolean",
+  function () {
+    console.log('Awaiting a command');
+  },
 	function() {
-		console.log('Command received');
+		console.log('Aye, aye, commander!');
 	});
 
 allthingstalk.connect();
