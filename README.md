@@ -109,7 +109,7 @@ To obtain the example you can either clone the repository, or copy the examples 
 
 Sensor example simulates a device which asks for a message and sends it to the platform.
 
-Navigate to the example folder, and add your **Device Id** and **Device Token** to **sensor.js** file**,** e.g:
+Navigate to the example folder, and add your **Device Id** and **Device Token** to **sensor.js** file, e.g:
 
 ```js
 allthingstalk.credentials = {
@@ -130,7 +130,7 @@ Enter “hello” in the terminal, and the **Message** asset will show your mess
 
 Actuator example shows how to send commands from AllThingsTalk Maker and receive them in the terminal.
 
-Navigate to the example folder, and add your **Device Id** and **Device Token** to **actuator.js,** e.g:
+Navigate to the example folder, and add your **Device Id** and **Device Token** to **actuator.js** file, e.g:
 
 ```js
 allthingstalk.credentials = {
