@@ -20,10 +20,11 @@ allthingstalk.credentials = {
 };
 
 allthingstalk.addAsset("cmd", "Commander", "This is an actuator test", "boolean",
-  function () {
+  function(status, statusMsg) {
+    console.log(statusMsg);
     console.log('Awaiting a command');
   },
-	function() {
+	function(message) {
 		console.log('Aye, aye, commander!');
 	});
 

@@ -1,4 +1,4 @@
-# AllThingsTalk Node.js SDK
+# Node.js SDK
 
 AllThingsTalk Node.js SDK enables easy access to [AllThingsTalk APIs](http://api.allthingstalk.io/swagger/ui/index). Use it to write your IoT applications and send data to the [AllThingsTalk IoT platform](http://maker.allthingstalk.com).
 
@@ -18,10 +18,10 @@ Basic knowledge of JavaScript is expected in order to use the SDK.
 
 ## Importing the library
 
-Create a .js file in `/node_modules/allthingstalk` folder and start by importing the library in your code:
+Create an empty *.js* file and start by importing the library in your code:
 
 ```js
-const allthingstalk = require('./');
+const allthingstalk = require('allthingstalk');
 ```
 
 ## Identifying your device on AllThingsTalk Maker
@@ -32,8 +32,8 @@ Once you register at [maker.allthingstalk.com](#), and create a device, you'll f
 
 ```js
 allthingstalk.credentials = {
-    "deviceId": "<yourDeviceId>",
-    "token": "<yourDeviceToken>"
+  "deviceId": "<yourDeviceId>",
+  "token": "<yourDeviceToken>"
 };
 ```
 
@@ -49,7 +49,7 @@ allthingstalk.addAsset("counter", "Counter", "Count the number of user's visits"
 
 This will create an asset with a unique asset name `counter`, human friendly title, description of what it represents, and type of data that will be sent. Supported profile types are `number`, `integer`, `string`, `boolean` and `object`. For more info on profile types see [Profiles article in our Docs](http://docs.allthingstalk.com/cloud/concepts/assets/profiles/).
 
-If you want to know if the asset was added or not you can add a success callback argument to the function:
+Add a success callback argument to the function if you want to handle the response (e.g. print out a status message):
 
 ```js
 allthingstalk.addAsset("counter", "Counter", "Count the number of user's visits", "integer",
@@ -57,8 +57,6 @@ allthingstalk.addAsset("counter", "Counter", "Count the number of user's visits"
   console.log(statusMsg)
 });
 ```
-
-This will add the asset and print out the message "Asset counter has been added" in the terminal. Should you run the program again you’ll see a message "Asset counter already exists" because the asset resource has already been created during the first run of the program.
 
 ## Sending data to the platform
 
@@ -96,8 +94,8 @@ allthingstalk.addAsset("led", "Led", "Blue led lamp", "boolean",
     function() {
           console.log ("Awaiting a command");
     },
-    function() {
-        myBoard.led(true); // example code that might actuate your device
+    function(message) {
+        led.writeSync(0);  // your logic to actuate the device
     });
 ```
 
@@ -137,7 +135,7 @@ Navigate to the example folder, and add your **Device Id** and **Device Token** 
 ```js
 allthingstalk.credentials = {
     "deviceId": "71DTRZpn8SzXrfGMM7cGQ9Ui",
-    "token": "maker:4UT0JCOR9JTfW1VeVsQ1aXliBU4MJtXcLcp9NB7"
+    "token": "afaketoken:4UT0JCOR9JTfW1VeVsQ1aXliBU4MJtXcLcp9NB7"
 };
 ```
 
@@ -148,4 +146,3 @@ node actuator.js
 ```
 
 In AllThingsTalk Maker, send a command from the **Commander** asset; you should see that the command is received in the terminal.
-
